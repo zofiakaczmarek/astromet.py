@@ -98,7 +98,7 @@ def get_offset(params, u0, t0):
     params.blenddrac, params.blendddec = offset_mas[0], offset_mas[1]
     return params
 
-def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, fbl, pmrac_source, pmdec_source, d_source, thetaE):
+def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source, pmdec_source, d_source, thetaE):
     """
     Defines astromet parameters using standard microlensing parameters (u0, t0, tE, piEN, piEE, m0, fbl), kinematics of the source and thetaE.
 
@@ -136,8 +136,8 @@ def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, fbl, pmrac_source, pmd
     mu_rel_E = mu_rel*piEE/piE
 
     # lens motion
-    pmdec_lens = pmdec_source - mu_rel_N
-    pmrac_lens = pmrac_source - mu_rel_E
+    pmdec_lens = pmdec_source + mu_rel_N
+    pmrac_lens = pmrac_source + mu_rel_E
 
     # parallaxes
     pi_source = 1/d_source

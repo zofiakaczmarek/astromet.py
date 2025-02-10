@@ -389,7 +389,7 @@ If you prefer to operate in the standard microlensing parameters from the photom
   
 Here, the :math:`u_0` and :math:`t_0` parameters are the distance in :math:`\theta_E` units and time, respectively, at the closest approach in straight-line motion.
 
-:math:`\pi_{EN}` and :math:`\pi_{EE}` define a vector with a length of the microlensing parallax :math:`\pi_E` (:math:`\pi_E = (\pi_{lens} - \pi_{source})/\theta_E`) and direction of the relative **source-lens** motion. The North and East directions are equatorial.
+:math:`\pi_{EN}` and :math:`\pi_{EE}` define a vector with a length of the microlensing parallax :math:`\pi_E` (:math:`\pi_E = (\pi_{lens} - \pi_{source})/\theta_E`) and direction of the relative **lens-source** motion. The North and East directions are equatorial. (See `microlensing.source <http://www.microlensing-source.org/glossary/>` for more details.)
 
 :math:`f_{bl}` is the fraction of total light that is coming from the source. When defining the parameters with `define_lens`, all extra light is assumed to come from the lens (see the blending section).
 
