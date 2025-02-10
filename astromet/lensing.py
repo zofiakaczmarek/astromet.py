@@ -137,8 +137,8 @@ def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source,
     mu_rel_E = mu_rel*piEE/piE
 
     # lens motion
-    pmdec_lens = mu_rel_N + pmdec_source
-    pmrac_lens = mu_rel_E + pmrac_source
+    pmdec_lens = pmdec_source - mu_rel_N
+    pmrac_lens = pmrac_source - mu_rel_E
 
     # parallaxes
     pi_source = 1/d_source
