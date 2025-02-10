@@ -98,7 +98,7 @@ def get_offset(params, u0, t0):
     params.blenddrac, params.blendddec = offset_mas[0], offset_mas[1]
     return params
 
-def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source, pmdec_source, d_source, thetaE):
+def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, fbl, pmrac_source, pmdec_source, d_source, thetaE):
     """
     Defines astromet parameters using standard microlensing parameters (u0, t0, tE, piEN, piEE, m0, fbl), kinematics of the source and thetaE.
 
@@ -112,7 +112,6 @@ def define_lens(params, ra, dec,  u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source,
         - tE            float - timescale of the event, days
         - piEN          float - local north component of the microlensing parallax vector
         - piEE          float - local east component of the microlensing parallax vector
-        - m0            float - magnitude at baseline, mag
         - fbl           float - blending parameter (flux from the source / combined flux)
         (assumed)
         - pmrac_source          float - proper motion of the source in RAcosDec, mas/yr

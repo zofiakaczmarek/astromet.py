@@ -379,13 +379,19 @@ If you set both the binary parameters and the lensing parameters, you will end u
 notes for microlensers
 ----------------------
 
-If you prefer to operate in the standard microlensing parameters from the photometric model (u0, t0, tE, piEN, piEE, m0, fbl), you can easily create a track using them. Note that, because of degeneracies, those parameters are not enough to define an astrometric track, and you have to also assume some value of :math:`\theta_E` and enter the astrometry of the source (pmrac_source, pmdec_source, d_source).
+If you prefer to operate in the standard microlensing parameters from the photometric model (u0, t0, tE, piEN, piEE, fbl), you can easily create a track using them. Note that, because of degeneracies, those parameters are not enough to define an astrometric track, and you have to also assume some value of :math:`\theta_E` and enter the astrometry of the source (pmrac_source, pmdec_source, d_source).
 
 ::
 
   params = astromet.params()
-  params = astromet.define_lens(params, u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source, pmdec_source, d_source, thetaE)
+  params = astromet.define_lens(params, ra, dec, u0, t0, tE, piEN, piEE, m0, fbl, pmrac_source, pmdec_source, d_source, thetaE)
   drac, ddec, mag_diff = astromet.track(ts, params)
+  
+Here, the :math:`u_0` and :math:`t_0` parameters are the distance in :math:`\theta_E` units and time, respectively, at the closest approach in straight-line motion.
+
+:math:`\pi_{EN}` and :math:`\pi_{EE}` define a vector with a length of the microlensing parallax :math:`\pi_E` (:math:`\pi_E = (\pi_{lens} - \pi_{source})/\theta_E`) and direction of the relative **source-lens** motion. The North and East directions are equatorial.
+
+:math:`f_{bl}` is the fraction of total light that is coming from the source. When defining the parameters with `define_lens`, all extra light is assumed to come from the lens (see the blending section).
 
 Alternatively, if you have previously defined :math:`\theta_E`, as well as the proper motions and parallaxes of the source and the lens, and just want to get the offset between those tracks, you can call:
 
@@ -395,7 +401,7 @@ Alternatively, if you have previously defined :math:`\theta_E`, as well as the p
 
 which overwrites the lens position at the reference epoch to match :math:`u_0` and :math:`t_0`.
 
-Use parameters defined in the heliocentric frame for that!
+Use parameters defined in the heliocentric frame for these functions!
 
 limitations
 -----------
